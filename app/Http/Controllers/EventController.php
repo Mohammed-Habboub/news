@@ -24,7 +24,7 @@ class EventController extends Controller
     {
         //
         $data = Event::all();
-        return response()->view('cms.events.create');
+        return response()->view('cms.events.create', ['even' => $data]);
     }
 
     /**
@@ -39,6 +39,18 @@ class EventController extends Controller
             //'image' => 'file|size:512'
 
         ]);
+
+        $image = null;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $image = $file->store('/images', 'public');
+        }
+
+        $request->merge([
+            'image' => $image,
+        ]);
+
+
         $even = new Event();
         $even->title = $request->get('title');
         $even->description = $request->get('description');
@@ -73,12 +85,22 @@ class EventController extends Controller
     public function update(Request $request, string $id)
     {
         //
+
+
         $request->validate([
             'title' => 'required|string|min:3|max:25',
             'description'  => 'string|min:3|max:200',
             //'image' => 'file|size:512'
 
         ]);
+
+        $data = $request->all();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $data['image'] = $file->store('/images', 'public');
+        }
+
+
         $even = Event::findOrFail($id);
         $even->title = $request->get('title');
         $even->description = $request->get('description');

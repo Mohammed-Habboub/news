@@ -42,7 +42,7 @@
                                     <td>{{ $new->id }}</td>
                                     <td>{{ $new->title }}</td>
                                     <td>{{ $new->description }}</td>
-                                    <td>{{ $new->Image }}</td>
+                                    <td>{{ $new->image }}</td>
                                     <td>{{ $new->created_at }}</td>
                                     <td>{{ $new->updated_at }}</td>
                                     <td>

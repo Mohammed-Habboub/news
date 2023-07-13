@@ -25,7 +25,7 @@
                 <!-- form start -->
 
                 <form method="POST" action="{{ route('blogs.store') }}" >
-                    @csrf
+                @csrf
                   <div class="card-body">
                     @if ($errors->any())
                         <div class="alert alert-danger alert-dismissible">

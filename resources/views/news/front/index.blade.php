@@ -15,43 +15,19 @@
                             <div class="single-slider">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top2.jpg" alt="">
+                                        <img src="{{ $events[0]->image}}" alt="">
                                         <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{ $categories[0]->title}}</span>
+                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$events[0]->description}}</a></h2>
+                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">{{$events[0]->created_at}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top02.jpg" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top03.jpg" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
+
                     <!-- Right content -->
                     <div class="col-lg-4">
                             <!-- Trending Top -->
@@ -59,12 +35,11 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top3.jpg" alt="">
+                                        <img src="{{ $events[1]->image}}" alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgb">FASHION</span>
-                                            <h2><a href="latest_news.html">Secretart for Economic Air
-                                                plane that looks like</a></h2>
-                                            <p>by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgb">{{$categories[1]->title}}</span>
+                                            <h2><a href="latest_news.html"> {{ $events[1]->description}}</a></h2>
+                                            <p>{{$events[1]->created_at}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,12 +81,10 @@
                                 <!--Nav Button  -->
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lifestyle</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Travel</a>
-                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Fashion</a>
-                                        <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Sports</a>
-                                        <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Technology</a>
-                                    </div>
+                                    @foreach ($categories as $category)
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{$category->title}}</a>
+                                    @endforeach
+
                                 </nav>
                                 <!--End Nav Button  -->
                             </div>
@@ -138,23 +111,26 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <!-- Right single caption -->
                                         <div class="col-xl-6 col-lg-12">
                                             <div class="row">
-                                                <!-- single -->
-                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                    <div class="whats-right-single mb-20">
-                                                        <div class="whats-right-img">
-                                                            <img src="assets/img/gallery/whats_right_img1.png" alt="">
-                                                        </div>
-                                                        <div class="whats-right-cap">
-                                                            <span class="colorb">FASHION</span>
-                                                            <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                            <p>Jun 19, 2020</p>
+                                                @foreach ($events as $event)
+                                                    <!-- single -->
+                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                        <div class="whats-right-single mb-20">
+                                                            <div class="whats-right-img">
+                                                                <img src="{{ $event->image}}" alt="" height="80px" width="80px">
+                                                            </div>
+                                                            <div class="whats-right-cap">
+                                                                <span class="colorb">{{$event->title}}</span>
+                                                                <h4><a href="latest_news.html">{{$event->description}}</a></h4>
+                                                                <p>{{$event->created_at}} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                @endforeach
+                                                {{-- <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
                                                     <div class="whats-right-single mb-20">
                                                         <div class="whats-right-img">
                                                             <img src="assets/img/gallery/whats_right_img2.png" alt="">
@@ -189,9 +165,12 @@
                                                             <p>Jun 19, 2020</p>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
+
                                             </div>
+
                                         </div>
+
                                     </div>
                                 </div>
                                 <!-- Card two -->
@@ -608,16 +587,20 @@
                                 <div class="col-lg-12">
                                     <div class="weekly2-news-active d-flex">
                                         <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews1.png" alt="">
+
+                                        @foreach ($events as $event )
+                                            <div class="weekly2-single">
+                                                <div class="weekly2-img">
+                                                    <img src="{{$event->image}}" alt="">
+                                                </div>
+                                                <div class="weekly2-caption">
+                                                    <h4><a href="#">{{$event->description}}</a></h4>
+                                                    <p>{{$event->updated_at}}</p>
+                                                </div>
                                             </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single -->
+                                        @endforeach
+
+                                        {{-- <!-- Single -->
                                         <div class="weekly2-single">
                                             <div class="weekly2-img">
                                                 <img src="assets/img/gallery/weeklyNews2.png" alt="">
@@ -646,7 +629,7 @@
                                                 <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
                                                 <p>Jhon  |  2 hours ago</p>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -669,63 +652,37 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-12">
                         <div class="recent-active dot-style d-flex dot-style">
+                            @foreach ($events as $event)
                             <!-- Single -->
                             <div class="single-recent">
                                 <div class="what-img">
-                                    <img src="assets/img/gallery/tranding1.png" alt="">
+                                    <img src="{{$event->image}}" alt="">
                                 </div>
                                 <div class="what-cap">
-                                    <h4><a href="#" > <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4></a></h4>
-                                    <P>Jun 19, 2020</P>
+                                    <h4><a href="#" > <h4><a href="latest_news.html">{{$event->description}}</a></h4></a></h4>
+                                    <P>{{$event->updated_at}}</P>
                                     <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><span class="flaticon-play-button"></span></a>
 
                                 </div>
                             </div>
+                            \     @endforeach
                             <!-- Single -->
-                            <div class="single-recent">
-                                <div class="what-img">
-                                    <img src="assets/img/gallery/tranding2.png" alt="">
-                                </div>
-                                <div class="what-cap">
-                                    <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                    <P>Jun 19, 2020</P>
-                                    <a class="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><span class="flaticon-play-button"></span></a>
-                                </div>
-                            </div>
-                            <!-- Single -->
-                            <div class="single-recent">
-                                <div class="what-img">
-                                    <img src="assets/img/gallery/tranding1.png" alt="">
-                                </div>
-                                <div class="what-cap">
-                                    <h4><a href="latest_news.html"> <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4></a></h4>
-                                    <P>Jun 19, 2020</P>
-                                    <a class="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><span class="flaticon-play-button"></span></a>
-                                </div>
-                            </div>
-                            <!-- Single -->
-                            <div class="single-recent">
-                                <div class="what-img">
-                                    <img src="assets/img/gallery/tranding2.png" alt="">
-                                </div>
-                                <div class="what-cap">
-                                    <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                    <P>Jun 19, 2020</P>
-                                    <a class="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><span class="flaticon-play-button"></span></a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
     <!--Recent Articles End -->
     <!-- Start Video Area -->
-    <div class="youtube-area video-padding d-none d-sm-block">
+    {{-- <div class="youtube-area video-padding d-none d-sm-block">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -817,10 +774,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End Start Video area-->
     <!--   Weekly3-News start -->
-    <div class="weekly3-news-area pt-80 pb-130">
+    {{-- <div class="weekly3-news-area pt-80 pb-130">
         <div class="container">
             <div class="weekly3-wrapper">
                 <div class="row">
@@ -883,7 +840,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End Weekly-News -->
     <!-- banner-last Start -->
     <div class="banner-area gray-bg pt-90 pb-90">

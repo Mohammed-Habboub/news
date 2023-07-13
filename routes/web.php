@@ -5,6 +5,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('cms.layouts.parant');
 });
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // Route to Admins
 // Actions to categories
@@ -60,14 +64,14 @@ Route::prefix('cms/admin')->group(function () {
 
 // Route to Users
 Route::prefix('app')->group(function () {
-    Route::view('/', 'news.index')->name('news.index');
-    Route::view('/about', 'news.about')->name('news.about');
-    Route::view('/blog', 'news.blog')->name('news.blog');
-    Route::view('/detailes', 'news.blog_details')->name('news.blog_details');
-    Route::view('/categori', 'news.categori')->name('news.categori');
-    Route::view('/contact', 'news.contact')->name('news.contact');
-    Route::view('/elements', 'news.elements')->name('news.elements');
-    Route::view('/latest', 'news.latest_news')->name('news.latest');
-    Route::view('/main', 'news.main')->name('news.main');
+    Route::get('/', [HomeController::class, 'index'])->name('news.index');
+    Route::view('/about', 'news.front.about')->name('news.about');
+    Route::view('/blog', 'news.front.blog')->name('news.blog');
+    Route::view('/detailes', 'news.front.blog_details')->name('news.blog_details');
+    Route::view('/categori', 'news.front.categori')->name('news.categori');
+    Route::view('/contact', 'news.front.contact')->name('news.contact');
+    Route::view('/elements', 'news.front.elements')->name('news.elements');
+    Route::view('/latest', 'news.front.latest_news')->name('news.latest');
+    Route::view('/main', 'news.front.main')->name('news.main');
 });
 

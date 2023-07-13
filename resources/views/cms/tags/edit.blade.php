@@ -23,7 +23,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-
+<div class="modal-body">
                 <form method="POST" action="{{ route('tags.update', $tag->id) }}" >
                     @csrf
                     @method('PUT')
@@ -58,7 +58,7 @@
                       <input type="text" name="slug"  value="{{$tag->slug}}" placeholder="Enter slug ">
                     </div>
 
-        
+
                   </div>
                   <!-- /.card-body -->
 

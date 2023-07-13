@@ -24,7 +24,7 @@
                 <!-- /.card-header -->
                 <!-- form start -->
 
-                <form method="POST" action="{{ route('events.store') }}" >
+                <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data" >
                     @csrf
                   <div class="card-body">
                     @if ($errors->any())
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Image</label>
+                        <label for="image" >Image</label>
                         <input type="file" name="image" id="image" class="form-control-file">
                     </div>
                   </div>

@@ -4,7 +4,7 @@
 
 @section('page-title', 'Create')
 
-@section('small-title', 'News Create')
+@section('small-title', 'News Edit')
 
 @section('style')
 @endsection
@@ -59,8 +59,11 @@
                       </div>
 
                       <div class="form-group">
-                          <label for="image">Image</label>
-                          <input type="file" name="image" id="image" class="form-control-file">
+                        <label for="image">Image</label>
+                            @if ($new->image)
+                            <img src="{{ asset('storage/' . $new->image)}}" alt="" srcset="" height="50px" width="50px">
+                            @endif
+                        <input type="file" name="image" id="image" class="form-control-file">
                       </div>
                   </div>
                   <!-- /.card-body -->

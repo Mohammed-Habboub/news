@@ -15,6 +15,8 @@ class CategoryController extends Controller
         //
         $data = Category::all();
         return response()->view('cms.categories.index', ['categories' => $data]);
+
+
     }
 
     /**
@@ -67,7 +69,7 @@ class CategoryController extends Controller
     {
         //
         $category = Category::findOrFail($id);
-        return response()->view('cms.categories.edit',['category' => $category]);
+        return response()->view('cms.categories.index',['category' => $category]);
 
     }
 
