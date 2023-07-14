@@ -290,7 +290,10 @@
                                         <i class="fas fa-plus-square nav-icon"></i>
                                         <p>Create</p>
                                     </a>
-                                </li> {{-- <li class="nav-item">
+                                </li>
+
+
+                                {{-- <li class="nav-item">
                                     <a href="../tables/jsgrid.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>jsGrid</p>
@@ -326,6 +329,13 @@
                                     <a href="{{ route('users.index')}}" class="nav-link">
                                         <i class="fas fa-list nav-icon"></i>
                                         <p>Index</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('users.create')}}" class="nav-link">
+                                        <i class="fas fa-plus-square nav-icon"></i>
+                                        <p>Create</p>
                                     </a>
                                 </li>
                             </ul>
@@ -451,7 +461,7 @@
 
                         <b><li class="nav-header">- Settings</li></b>
                         <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                            <a href="{{ route('profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-user-edit"></i>
                                 <p>Edit Profile</p>
                             </a>

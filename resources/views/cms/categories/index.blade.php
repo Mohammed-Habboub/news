@@ -85,12 +85,12 @@
 
                                                 <div class="form-group">
                                                     <label for="title">Title</label>
-                                                    <input type="text" name="title" value="{{$category->title}}" id="title" placeholder="Enter Title ">
+                                                    <input class="form-control" type="text" name="title" value="{{$category->title}}" id="title" placeholder="Enter Title ">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="slug">Slug</label>
-                                                    <input type="text" name="slug"  value="{{$category->slug}}" placeholder="Enter slug ">
+                                                    <input class="form-control" type="text" name="slug"  value="{{$category->slug}}" placeholder="Enter slug ">
                                                 </div>
 
                                                 <div class="form-check">

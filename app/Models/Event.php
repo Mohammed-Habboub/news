@@ -22,4 +22,9 @@ class Event extends Model
             'id'
         );
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

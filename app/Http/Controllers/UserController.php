@@ -23,6 +23,8 @@ class UserController extends Controller
     public function create()
     {
         //
+        $data = User::all();
+        return response()->view('cms.users.create');
     }
 
     /**
@@ -31,6 +33,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|min:3|max:25',
+            'email'=>'required|email',
+            'password' => 'required|min:8'
+
+        ]);
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = $request->get('password');
+        $isSaved = $user->save();
+
+        session()->flash('message', $isSaved ? 'User to created Successfuly' : 'Falied created User');
+        return redirect()->back();
     }
 
     /**
@@ -47,6 +63,9 @@ class UserController extends Controller
     public function edit(string $id)
     {
         //
+        $user = User::findOrFail($id);
+        return response()->view('cms.users.edit',['user' => $user]);
+
     }
 
     /**
@@ -55,6 +74,18 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'name' => 'required|string|min:3|max:25',
+            'email'=>'required|email',
+            //'password' => 'required|min:8'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        //$user->password = $request->get('password');
+        $isSaved = $user->save();
+        return redirect()->route('users.index');
     }
 
     /**

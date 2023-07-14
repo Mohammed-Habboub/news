@@ -15,11 +15,11 @@
                             <div class="single-slider">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="{{ $events[0]->image}}" alt="">
+                                        <img src="" alt="">
                                         <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{ $categories[0]->title}}</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$events[0]->description}}</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">{{$events[0]->created_at}}</p>
+                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms"></span>
+                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms"></a></h2>
+                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -35,11 +35,11 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="{{ $events[1]->image}}" alt="">
+                                        <img src="" alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgb">{{$categories[1]->title}}</span>
-                                            <h2><a href="latest_news.html"> {{ $events[1]->description}}</a></h2>
-                                            <p>{{$events[1]->created_at}}</p>
+                                            <span class="bgb"></span>
+                                            <h2><a href="latest_news.html"></a></h2>
+                                            <p></p>
                                         </div>
                                     </div>
                                 </div>

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
+use App\Notifications\NewEventCreateNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+// use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Notification;
 
 class EventController extends Controller
 {
@@ -33,6 +38,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
             'title' => 'required|string|min:3|max:25',
             'description'  => 'string|min:3|max:200',
@@ -56,6 +62,26 @@ class EventController extends Controller
         $even->description = $request->get('description');
         $even->image = $request->get('image');
         $isSaved = $even->save();
+
+        // Get all the other admins except the one who created the news
+        $users = User::where('id', '!=', 3)->get();
+
+        // Send email notifications to each admin
+        /*foreach ($usres as $usre) {
+            Mail::to($usre->email)->send(new NewEventCreateNotification($user, $events));
+        }*/
+
+        // event(new NewEventCreateNotification($even));
+
+        // Get all the other admins except the one who created the news
+        $users = User::where('id', '!=', 3)->get();
+
+        foreach($users as $user){
+            Notification::send($user, new NewEventCreateNotification($even));
+        }
+
+        //$user->notify(new NewEventCreateNotification($even));
+        // $users->notify(new NewEventCreateNotification($even));
 
         session()->flash('message', $isSaved ? 'New to created Successfuly' : 'Falied created New');
         return redirect()->back();

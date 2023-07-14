@@ -1,7 +1,7 @@
 @extends('cms.layouts.parant')
 @section('title', 'Users')
 @section('page-title', 'Index')
-@section('small-title', 'Users Index')
+@section('small-title', 'Admins Index')
 @section('style')
 @endsection @section('content')
  <section class="content-header">
@@ -10,7 +10,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Users Table</h3>
+                        <h3 class="card-title">Admins Table</h3>
                         {{-- <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control float-right"
@@ -29,6 +29,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Password</th>
                                     <th>Create AT</th>
                                     <th>Update AT</th>
                                     <th>Settings</th>
@@ -41,10 +42,14 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->password }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td>
                                         <div class="btn-group">
+                                            <a href="{{route('users.edit', $user->id)}}" class="btn btn-info">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
 
                                             <a href="#" onclick="confirmDestroy({{$user->id}}, this)" class="btn btn-danger">
                                                 <i class="fas fa-trash"></i>

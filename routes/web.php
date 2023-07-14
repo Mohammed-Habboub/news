@@ -62,6 +62,10 @@ Route::prefix('cms/admin')->group(function () {
     Route::resource('users', UserController::class);
 });
 
+Route::prefix('cms/admin')->group(function () {
+    Route::view('/edit-account-info', 'cms.profile.edit-account-info')->name('profile');;
+});
+
 // Route to Users
 Route::prefix('app')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('news.index');
@@ -74,4 +78,5 @@ Route::prefix('app')->group(function () {
     Route::view('/latest', 'news.front.latest_news')->name('news.latest');
     Route::view('/main', 'news.front.main')->name('news.main');
 });
+
 
