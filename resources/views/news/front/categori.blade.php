@@ -19,11 +19,9 @@
                                         <!--Nav Button  -->
                                         <nav>
                                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lifestyle</a>
-                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Travel</a>
-                                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Fashion</a>
-                                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Sports</a>
-                                                <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Technology</a>
+                                                @foreach ($categories as $category)
+                                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->title }}</a>
+                                                @endforeach
                                             </div>
                                         </nav>
                                         <!--End Nav Button  -->
@@ -39,83 +37,35 @@
                                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                             <div class="row">
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="{{asset('assets/img/gallery/whats_news_details1.png')}}" alt="">
+                                                    @foreach ($events as $event)
+                                                        <div class="whats-news-single mb-40 mb-40">
+                                                            <div class="whates-img">
+                                                                <img src="{{ $event->image }}" alt="">
+                                                            </div>
+                                                            <div class="whates-caption whates-caption2">
+                                                                <h4><a href="#"> {{$event->title }}</a></h4>
+                                                                <span>{{ $event->created_at }}</span>
+                                                                <p>{{ $event->description }}.</p>
+                                                            </div>
                                                         </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">{{asset('Secretart for Eco')}}nomic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
+
                                                 </div>
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="{{asset('assets/img/gallery/whats_news_details2.png')}}" alt="">
+                                                    @foreach ($events as $event)
+                                                        <div class="whats-news-single mb-40 mb-40">
+                                                            <div class="whates-img">
+                                                                <img src="{{ $event->image }}" alt="">
+                                                            </div>
+                                                            <div class="whates-caption whates-caption2">
+                                                                <h4><a href="#">{{$event->title }}</a></h4>
+                                                                <span>{{ $event->created_at }}</span>
+                                                                <p>{{ $event->description }}</p>
+                                                            </div>
                                                         </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="{{asset('assets/img/gallery/whats_news_details3.png')}}" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="{{ asset('assets/img/gallery/whats_news_details4.png')}}" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="{{ asset('assets/img/gallery/whats_news_details5.png')}}" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="{{ asset('assets/img/gallery/whats_news_details6.png')}}" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <!-- Card two -->

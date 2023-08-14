@@ -58,4 +58,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Event::class);
     }
+
+    // Many to Many
+    public function likedBlogs()
+    {
+        return $this->BelongsToMany(Blog::class)->withTimestamps();
+    }
 }

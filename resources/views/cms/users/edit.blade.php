@@ -23,7 +23,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-<div class="modal-body">
+            <div class="modal-body">
                 <form method="POST" action="{{ route('users.update', $user->id) }}" >
                     @csrf
                     @method('PUT')
@@ -49,17 +49,23 @@
                     @endif
 
                     <div class="form-group">
-                      <label for="name">name</label>
-                      <input type="text" name="name" value="{{$user->name}}" id="name" placeholder="Enter name ">
+                        <label for="name">name</label>
+                        <input type="text" name="name" value="{{$user->name}}" id="name" placeholder="Enter name ">
                     </div>
 
                     <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" name="email"  value="{{$user->email}}" placeholder="Enter email ">
+                        <label for="email">Email</label>
+                        <input type="email" name="email"  value="{{$user->email}}" placeholder="Enter email ">
                     </div>
 
+                    <select name="type">
+                        <!-- Options go here -->
+                        <option vaule="user" >user</option>
+                        <option value = "admin" >admin</option>
+                     </select>
 
-                  </div>
+
+            </div>
                   <!-- /.card-body -->
 
                   <div class="card-footer">

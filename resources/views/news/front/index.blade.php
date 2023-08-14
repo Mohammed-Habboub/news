@@ -10,24 +10,31 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <!-- Trending Top -->
+
                         <div class="slider-active">
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms"></span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms"></a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms"></p>
+                            @foreach ($events as $event)
+                                <!-- Single -->
+                                <div class="single-slider">
+                                    <div class="trending-top mb-30">
+                                        <div class="trend-top-img">
+                                            <img src="{{ $event->image }}" alt="">
+                                            <div class="trend-top-cap">
+                                                <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">
+                                                    @foreach ($event->categories as $category)
+                                                        {{ $category->title }}
+                                                    @endforeach
+
+                                                </span>
+                                                <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $event->description }}</a></h2>
+                                                <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">{{ $event->created_at }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            @endforeach
                         </div>
-                    </div>
 
+                    </div>
                     <!-- Right content -->
                     <div class="col-lg-4">
                             <!-- Trending Top -->
@@ -35,11 +42,11 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="" alt="">
+                                        <img src={{ $event->image }} alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgb"></span>
-                                            <h2><a href="latest_news.html"></a></h2>
-                                            <p></p>
+                                            <span class="bgb">{{ $categories[2]->title }}</span>
+                                            <h2><a href="latest_news.html">{{ $event->description }} </a></h2>
+                                            <p>{{ $event->created_at }} </p>
                                         </div>
                                     </div>
                                 </div>
@@ -47,11 +54,11 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top4.jpg" alt="">
+                                        <img src="{{ $event->image }}" alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgg">TECH </span>
-                                            <h2><a href="latest_news.html">Secretart for Economic Air plane that looks like</a></h2>
-                                            <p>by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgg">{{ $categories[3]->title}} </span>
+                                            <h2><a href="latest_news.html">{{ $event->description }}</a></h2>
+                                            <p>{{ $event->created_at }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -81,10 +88,10 @@
                                 <!--Nav Button  -->
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    @foreach ($categories as $category)
-                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{$category->title}}</a>
-                                    @endforeach
-
+                                        @foreach ($categories as $category)
+                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->title }}</a>
+                                        @endforeach
+                                    </div>
                                 </nav>
                                 <!--End Nav Button  -->
                             </div>
@@ -102,75 +109,43 @@
                                         <div class="col-xl-6 col-lg-12">
                                             <div class="whats-news-single mb-40 mb-40">
                                                 <div class="whates-img">
-                                                    <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                    <img src="{{ $event->image }}" alt="">
                                                 </div>
                                                 <div class="whates-caption">
-                                                    <h4><a href="latest_news.html">Secretart for Economic Air plane that looks like</a></h4>
-                                                    <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                    <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                                    <h4><a href="latest_news.html">{{ $event->title }}</a></h4>
+                                                    <span>{{ $event->created_at }}</span>
+                                                    <p>{{ $event->description }}</p>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!-- Right single caption -->
                                         <div class="col-xl-6 col-lg-12">
                                             <div class="row">
+                                                <!-- single -->
                                                 @foreach ($events as $event)
-                                                    <!-- single -->
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+
                                                         <div class="whats-right-single mb-20">
+
                                                             <div class="whats-right-img">
-                                                                <img src="{{ $event->image}}" alt="" height="80px" width="80px">
+                                                                <img src="{{ $event->image }}" alt="" width="80px">
                                                             </div>
                                                             <div class="whats-right-cap">
-                                                                <span class="colorb">{{$event->title}}</span>
-                                                                <h4><a href="latest_news.html">{{$event->description}}</a></h4>
-                                                                <p>{{$event->created_at}} </p>
+                                                                <span class="colorb">
+                                                                    @foreach ($event->categories as $category)
+                                                                        {{ $category->title }}
+                                                                    @endforeach
+                                                                </span>
+                                                                <h4><a href="latest_news.html">{{ $event->description }}</a></h4>
+                                                                <p>{{ $event->created_at }}</p>
                                                             </div>
                                                         </div>
-                                                    </div>
+
+                                                </div>
                                                 @endforeach
-                                                {{-- <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                    <div class="whats-right-single mb-20">
-                                                        <div class="whats-right-img">
-                                                            <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                        </div>
-                                                        <div class="whats-right-cap">
-                                                            <span class="colorb">FASHION</span>
-                                                            <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                            <p>Jun 19, 2020</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                    <div class="whats-right-single mb-20">
-                                                        <div class="whats-right-img">
-                                                            <img src="assets/img/gallery/whats_right_img3.png" alt="">
-                                                        </div>
-                                                        <div class="whats-right-cap">
-                                                            <span class="colorg">FASHION</span>
-                                                            <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                            <p>Jun 19, 2020</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                    <div class="whats-right-single mb-20">
-                                                        <div class="whats-right-img">
-                                                            <img src="assets/img/gallery/whats_right_img4.png" alt="">
-                                                        </div>
-                                                        <div class="whats-right-cap">
-                                                            <span class="colorr">FASHION</span>
-                                                            <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                            <p>Jun 19, 2020</p>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
 
                                             </div>
-
                                         </div>
-
                                     </div>
                                 </div>
                                 <!-- Card two -->
@@ -525,36 +500,31 @@
                         </div>
                         <!-- Details -->
                         <div class="most-recent mb-40">
+                            {{-- @foreach ($events as $event) --}}
                             <div class="most-recent-img">
-                                <img src="assets/img/gallery/most_recent.png" alt="">
+                                <img src="{{ $event->image }}" alt="">
                                 <div class="most-recent-cap">
-                                    <span class="bgbeg">Vogue</span>
-                                    <h4><a href="latest_news.html">What to Wear: 9+ Cute Work <br>
-                                        Outfits to Wear This.</a></h4>
-                                    <p>Jhon  |  2 hours ago</p>
+                                    <span class="bgbeg">{{ $categories[1]->name }}</span>
+                                    <h4><a href="latest_news.html">{{$event->description}}</a></h4>
+                                    <p>{{ $event->created_at }}</p>
                                 </div>
                             </div>
+                            {{-- @endforeach --}}
+
                         </div>
-                        <!-- Single -->
-                        <div class="most-recent-single">
-                            <div class="most-recent-images">
-                                <img src="assets/img/gallery/most_recent1.png" alt="">
+                        @for ($i = 0; $i < 2; $i++)
+                            <!-- Single -->
+                            <div class="most-recent-single">
+                                <div class="most-recent-images">
+                                    <img src="{{ $events[$i]->image }}" alt="" height="60px">
+                                </div>
+                                <div class="most-recent-capt">
+                                    <h4><a href="latest_news.html">{{ $events[$i]->title }}</a></h4>
+                                    <p>{{ $events[$i]->updated_at }}</p>
+                                </div>
                             </div>
-                            <div class="most-recent-capt">
-                                <h4><a href="latest_news.html">Scarlett’s disappointment at latest accolade</a></h4>
-                                <p>Jhon  |  2 hours ago</p>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="most-recent-single">
-                            <div class="most-recent-images">
-                                <img src="assets/img/gallery/most_recent2.png" alt="">
-                            </div>
-                            <div class="most-recent-capt">
-                                <h4><a href="latest_news.html">Most Beautiful Things to Do in Sidney with Your BF</a></h4>
-                                <p>Jhon  |  3 hours ago</p>
-                            </div>
-                        </div>
+                        @endfor
+
                     </div>
                 </div>
             </div>
@@ -587,49 +557,19 @@
                                 <div class="col-lg-12">
                                     <div class="weekly2-news-active d-flex">
                                         <!-- Single -->
-
-                                        @foreach ($events as $event )
-                                            <div class="weekly2-single">
-                                                <div class="weekly2-img">
-                                                    <img src="{{$event->image}}" alt="">
-                                                </div>
-                                                <div class="weekly2-caption">
-                                                    <h4><a href="#">{{$event->description}}</a></h4>
-                                                    <p>{{$event->updated_at}}</p>
-                                                </div>
+                                        @foreach ($events as $event)
+                                        <div class="weekly2-single">
+                                            <div class="weekly2-img">
+                                                <img src="{{ $event->image }}" alt="">
                                             </div>
+                                            <div class="weekly2-caption">
+                                                <h4><a href="#">in{{ $event->description}}</a></h4>
+                                                <p>{{ $event->created_at }}</p>
+                                            </div>
+                                        </div>
                                         @endforeach
 
-                                        {{-- <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews3.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -652,37 +592,35 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-12">
                         <div class="recent-active dot-style d-flex dot-style">
+                            <!-- Single -->
                             @foreach ($events as $event)
-                            <!-- Single -->
-                            <div class="single-recent">
-                                <div class="what-img">
-                                    <img src="{{$event->image}}" alt="">
-                                </div>
-                                <div class="what-cap">
-                                    <h4><a href="#" > <h4><a href="latest_news.html">{{$event->description}}</a></h4></a></h4>
-                                    <P>{{$event->updated_at}}</P>
-                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><span class="flaticon-play-button"></span></a>
 
+                                <div class="single-recent">
+                                    <div class="what-img">
+                                        <img src="{{ $event->image }}" alt="">
+                                    </div>
+                                    <div class="what-cap">
+                                        <h4><a href="#" > <h4><a href="latest_news.html">{{ $event->description }}</a></h4></a></h4>
+                                        <P>{{ $event->created_at }}</P>
+                                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><span class="flaticon-play-button"></span></a>
+
+                                    </div>
                                 </div>
-                            </div>
-                            \     @endforeach
-                            <!-- Single -->
+
+                            @endforeach
 
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
     <!--Recent Articles End -->
     <!-- Start Video Area -->
-    {{-- <div class="youtube-area video-padding d-none d-sm-block">
+    <div class="youtube-area video-padding d-none d-sm-block">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -774,10 +712,10 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- End Start Video area-->
     <!--   Weekly3-News start -->
-    {{-- <div class="weekly3-news-area pt-80 pb-130">
+    <div class="weekly3-news-area pt-80 pb-130">
         <div class="container">
             <div class="weekly3-wrapper">
                 <div class="row">
@@ -786,53 +724,22 @@
                             <!-- Slider -->
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="weekly3-news-active dot-style d-flex">
-                                        <div class="weekly3-single">
-                                            <div class="weekly3-img">
-                                                <img src="assets/img/gallery/weekly2News1.png" alt="">
+
+                                        <div class="weekly3-news-active dot-style d-flex">
+                                            @foreach ($events as $event)
+                                            <div class="weekly3-single">
+                                                <div class="weekly3-img">
+                                                    <img src="{{ $event->image }}" alt="" >
+                                                </div>
+                                                <div class="weekly3-caption">
+                                                    <h4><a href="latest_news.html">{{ $event->description}}</a></h4>
+                                                    <p>{{ $event->created_at }}</p>
+                                                </div>
                                             </div>
-                                            <div class="weekly3-caption">
-                                                <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                                <p>19 Jan 2020</p>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="weekly3-single">
-                                            <div class="weekly3-img">
-                                                <img src="assets/img/gallery/weekly2News2.png" alt="">
-                                            </div>
-                                            <div class="weekly3-caption">
-                                                <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                                <p>19 Jan 2020</p>
-                                            </div>
-                                        </div>
-                                        <div class="weekly3-single">
-                                            <div class="weekly3-img">
-                                                <img src="assets/img/gallery/weekly2News3.png" alt="">
-                                            </div>
-                                            <div class="weekly3-caption">
-                                                <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                                <p>19 Jan 2020</p>
-                                            </div>
-                                        </div>
-                                        <div class="weekly3-single">
-                                            <div class="weekly3-img">
-                                                <img src="assets/img/gallery/weekly2News4.png" alt="">
-                                            </div>
-                                            <div class="weekly3-caption">
-                                                <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                                <p>19 Jan 2020</p>
-                                            </div>
-                                        </div>
-                                        <div class="weekly3-single">
-                                            <div class="weekly3-img">
-                                                <img src="assets/img/gallery/weekly2News2.png" alt="">
-                                            </div>
-                                            <div class="weekly3-caption">
-                                                <h4><a href="latest_news.html">What to Expect From the 2020 Oscar Nomin ations</a></h4>
-                                                <p>19 Jan 2020</p>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -840,7 +747,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- End Weekly-News -->
     <!-- banner-last Start -->
     <div class="banner-area gray-bg pt-90 pb-90">

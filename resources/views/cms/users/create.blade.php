@@ -61,6 +61,14 @@
                         <input type="password" id="password" name="password">
                     </div>
 
+                    <select name="type">
+                        <!-- Options go here -->
+                        <option value="user">user</option>
+                        <option value="admin">admin</option>
+
+                        <!-- Add more options as needed -->
+                      </select>
+
 
                   </div>
                   <!-- /.card-body -->

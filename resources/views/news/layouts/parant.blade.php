@@ -47,13 +47,17 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left">
                                 <ul>
-                                    <li class="title"><span class="flaticon-energy"></span> trending-title</li>
-                                    <li>Class property employ ancho red multi level mansion</li>
+                                    <li class="title"><span class="flaticon-energy"></span> {{ Auth::user()->name }}</li>
+                                    <li>{{ env('APP_NAME')}}</li>
                                 </ul>
                             </div>
                             <div class="header-info-right">
                                 <ul class="header-date">
-                                    <li><span class="flaticon-calendar"></span> +880166 253 232</li>
+                                    <li><span class="flaticon-calendar"></span>{{ Auth::user()->email }}</li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-warning" >Logout</button>
+                                    </form>
                                 </ul>
                             </div>
                         </div>

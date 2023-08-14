@@ -65,6 +65,11 @@
                             @endif
                         <input type="file" name="image" id="image" class="form-control-file">
                       </div>
+
+                      {{-- <div class="form-group">
+                        <label for="tag">Tag: </label>
+                        <input type="text" name="tag"  id="tag" placeholder="Enter tag ">
+                      </div> --}}
                   </div>
                   <!-- /.card-body -->
 

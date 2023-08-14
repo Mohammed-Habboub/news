@@ -61,10 +61,11 @@ class EventController extends Controller
         $even->title = $request->get('title');
         $even->description = $request->get('description');
         $even->image = $request->get('image');
+        // $even->image = $request->get('tag');
         $isSaved = $even->save();
 
         // Get all the other admins except the one who created the news
-        $users = User::where('id', '!=', 3)->get();
+        // $users = User::where('id', '!=', 3)->get();
 
         // Send email notifications to each admin
         /*foreach ($usres as $usre) {
@@ -74,11 +75,13 @@ class EventController extends Controller
         // event(new NewEventCreateNotification($even));
 
         // Get all the other admins except the one who created the news
-        $users = User::where('id', '!=', 3)->get();
+        /*$users = User::where('email', '!=', 'kmfah9@gmail.com')->get();
+        if ($users->type == 'admin' ) {
+            foreach($users as $user){
+                Notification::send($user, new NewEventCreateNotification($even));
+            }
+        }*/
 
-        foreach($users as $user){
-            Notification::send($user, new NewEventCreateNotification($even));
-        }
 
         //$user->notify(new NewEventCreateNotification($even));
         // $users->notify(new NewEventCreateNotification($even));
@@ -131,6 +134,7 @@ class EventController extends Controller
         $even->title = $request->get('title');
         $even->description = $request->get('description');
         $even->image = $request->get('image');
+        // $even->image = $request->get('tag');
         $isSaved = $even->save();
 
 

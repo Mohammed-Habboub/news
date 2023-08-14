@@ -43,6 +43,7 @@ class UserController extends Controller
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->password = $request->get('password');
+        $user->type = $request->get('type');
         $isSaved = $user->save();
 
         session()->flash('message', $isSaved ? 'User to created Successfuly' : 'Falied created User');
@@ -83,6 +84,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->get('name');
         $user->email = $request->get('email');
+        $user->type = $request->get('type');
         //$user->password = $request->get('password');
         $isSaved = $user->save();
         return redirect()->route('users.index');

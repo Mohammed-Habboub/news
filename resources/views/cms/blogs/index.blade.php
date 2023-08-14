@@ -43,7 +43,7 @@
                                     <td>{{ $blog->id }}</td>
                                     <td>{{ $blog->title }}</td>
                                     <td>{{ $blog->description }}</td>
-                                    <td>{{ $blog->image }}</td>
+                                    <td>{{ $blog->image_url }}</td>
                                     <td>{{ $blog->user->name }}</td>
                                     <td>{{ $blog->created_at }}</td>
                                     <td>{{ $blog->updated_at }}</td>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -13,6 +15,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        if (!Gate::denies('categories.view')) {
+            abort(403);
+        }
         $data = Category::all();
         return response()->view('cms.categories.index', ['categories' => $data]);
 
@@ -48,6 +53,7 @@ class CategoryController extends Controller
         $category->title = $request->get('title');
         $category->slug = $request->get('slug');
         $category->active = $request->has('active') ? true : false;
+        // $category->categories()->attach($request->categories_id);
         $isSaved = $category->save();
 
         session()->flash('message', $isSaved ? 'Category to created Successfuly' : 'Falied created category');

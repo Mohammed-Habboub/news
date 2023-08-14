@@ -23,7 +23,7 @@ class BlogFactory extends Factory
             'title'        => $this->faker->word(),
             'description'  =>  $this->faker->word(),
             'image_url'    => $this->faker->imageUrl(),
-            'userc_id'      => User::inRandomOrder()->first()->id,
+            'user_id'      => User::inRandomOrder()->first()->id,
 
         ];
     }

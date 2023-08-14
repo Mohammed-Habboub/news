@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,10 +18,10 @@ class HomeController extends Controller
     {
         //
         $events = Event::latest()->take(4)->get();
-        $categories = Category::latest()->take(4)->get();
+        $categories = Category::latest()->take(5)->get();
         return view('news.front.index', [
             'events' => $events,
-             'categories' => $categories
+            'categories' => $categories
             ]);
     }
 
@@ -43,10 +45,15 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    /*public function show(string $id)
     {
-        //
-    }
+        $users = User::find($id);
+        $blogs = Blog::find($id);
+
+        return view('news.front.blog', compact('users', 'blogs'));
+    }*/
+
+
 
     /**
      * Show the form for editing the specified resource.

@@ -76,12 +76,7 @@
 
 
         <li class="nav-item dropdown pr-4">
-  <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="position: relative;width: 35px;height: 35px;margin: 0 10px;">
-    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="4ee86c2492193fd962bcda8b-|49"></script><img class="img-avatar" src="https://demo.backpackforlaravel.com/storage/basset/secure.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61.jpg" alt="Demo Admin" onerror="this.style.display='none'" style="margin: 0;position: absolute;left: 0;z-index: 1;">
-    <span class="backpack-avatar-menu-container" style="position: absolute;left: 0;width: 100%;background-color: #00a65a;border-radius: 50%;color: #FFF;line-height: 35px;font-size: 85%;font-weight: 300;">
-      D
-    </span>
-  </a>
+
   <div class="dropdown-menu dropdown-menu-right mr-4 pb-1 pt-1">
           <a class="dropdown-item" href="https://demo.backpackforlaravel.com/admin/edit-account-info"><i class="la la-user"></i> My Account</a>
       <div class="dropdown-divider"></div>
@@ -131,7 +126,7 @@
 
        <nav aria-label="breadcrumb" class="d-none d-lg-block">
 	  <ol class="breadcrumb bg-transparent p-0 justify-content-end">
-	  		  					    <li class="breadcrumb-item text-capitalize"><a href="{{route('cms.parant')}}">Admin</a></li>
+	  		  					    <li class="breadcrumb-item text-capitalize"><a href="{{route('dashboard')}}">DashBoard</a></li>
 	  			  		  					    <li class="breadcrumb-item text-capitalize active" aria-current="page">My Account</li>
 	  			  		  </ol>
 	</nav>
@@ -177,7 +172,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success"><i class="la la-save"></i> Save</button>
+                        <button type="submit" class="btn btn-success"> Save</button>
                         <a href="https://demo.backpackforlaravel.com/admin" class="btn">Cancel</a>
                     </div>
                 </div>
@@ -217,7 +212,7 @@
                     </div>
 
                     <div class="card-footer">
-                            <button type="submit" class="btn btn-success"><i class="la la-save"></i> Change Password</button>
+                            <button type="submit" class="btn btn-success"></i> Change Password</button>
                             <a href="https://demo.backpackforlaravel.com/admin" class="btn">Cancel</a>
                     </div>
 

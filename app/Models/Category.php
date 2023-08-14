@@ -18,4 +18,16 @@ class Category extends Model
     public function getActivityStatusAttribute() {
         return $this->active ? 'Active' : 'In-Active';
     }
+
+    public function events()
+    {
+        return $this->belongsToMany(
+            Event::class,
+            'category_event',
+            'category_id',
+            'event_id',
+            'id',
+            'id'
+        );
+    }
 }

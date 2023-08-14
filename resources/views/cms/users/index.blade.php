@@ -30,6 +30,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Password</th>
+                                    <th>Type</th>
                                     <th>Create AT</th>
                                     <th>Update AT</th>
                                     <th>Settings</th>
@@ -43,6 +44,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->password }}</td>
+                                    <td>{{ $user->type }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td>

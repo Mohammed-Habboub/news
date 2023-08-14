@@ -117,9 +117,13 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form> --}}
+                                            @can('categories.delete')
+
+
                                             <a href="#" onclick="confirmDestroy({{$category->id}}, this)" class="btn btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
+                                            @endcan
 
                                         </div>
                                     </td>

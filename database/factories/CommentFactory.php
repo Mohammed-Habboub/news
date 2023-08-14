@@ -20,9 +20,9 @@ class CommentFactory extends Factory
     {
         return [
             //
-            'content'        => $this->faker->word(),
-            'user_id'      => User::inRandomOrder()->first()->id,
-            'blog_id'      => Blog::inRandomOrder()->first()->id
+            'content'        => $this->faker->sentence(15),
+            'user_id'        => User::inRandomOrder()->first()->id,
+            'blog_id'        => Blog::inRandomOrder()->first()->id
         ];
     }
 }
